@@ -15,6 +15,9 @@ const navLinks = document.querySelectorAll('.nav-link');
 
 const button = document.querySelectorAll('.btn');
 
+const images = document.querySelectorAll('img');
+
+const body = document.querySelector('*');
 
 // ************* SELECTORS STYLES **********
 
@@ -25,13 +28,21 @@ button.forEach(item => item.style.width = '25%')
 button.forEach(item => item.style.padding = '1%')
 button.forEach(item => item.style.margin = '2% auto')
 
-// ********mouseover .addEventListener ************
+
+// nav links
+
+navLinks.forEach(item => item.style.fontSize = "1.2rem");
+navLinks.forEach(item => item.style.margin = "3%");
+navLinks.forEach(item => item.style.color = 'green');
+
+
+// ********mouseover && mouseout .addEventListener ************
 
 
 // logo
 
 logo.addEventListener('mouseover', (event)=>{
-  logo.style.color ='red';
+  logo.style.color ='green';
 });
 
 logo.addEventListener('mouseout', (event)=>{
@@ -42,7 +53,7 @@ logo.addEventListener('mouseout', (event)=>{
 // headings
 
 headings.forEach(item => item.addEventListener('mouseover',(event) =>{
-  item.style.color= 'red';
+  item.style.color= 'green';
 }));
 
 headings.forEach(item => item.addEventListener('mouseout',(event) =>{
@@ -50,7 +61,7 @@ headings.forEach(item => item.addEventListener('mouseout',(event) =>{
 }));
 
 
-// ********keydown .addEventListener ************
+// ********keydown & keyup .addEventListener ************
 
 // logo
 
@@ -64,14 +75,6 @@ document.addEventListener('keyup', (event)=>{
   logo.style.color ='black';
 });
 
-// links
-
-
-// nav.style.width = '70%';
-// navLinks.forEach(item => item.style.color = 'red');
-// navLinks.forEach(item => item.style.fontSize = '1.2rem');
-
-
 
 // ********wheel .addEventListener ************
 
@@ -83,9 +86,25 @@ paragraps.forEach(item => item.addEventListener('wheel', (event) => {
 // ********load .addEventListener ************
 
 window.addEventListener('load',(event)=>{
-  alert("Welcome to the Fun Bus Website!")
+  body.style.textAlign = 'center'
 });
 
+
+// ********online & offline .addEventListener ************
+
+window.addEventListener('online', (event)=>{
+  alert("You're now connected to the internet.");
+});
+
+window.addEventListener('offline', (event)=>{
+  alert("You're not connected to the internet.");
+});
+
+// ********resize .addEventListener ************
+
+window.addEventListener('resize', (event)=>{
+  body.style.backgroundColor = "grey";
+});
 
 // ********focus .addEventListener ************
 
@@ -96,5 +115,59 @@ window.addEventListener('load',(event)=>{
 
 button.forEach(item => item.addEventListener('click', (event) =>{
   item.style.backgroundColor = 'blue'
+  item.style.color = 'white'
 }));
+
+
+// ********select. .addEventListener ************
+
+
+// navLinks.forEach(item => item.addEventListener('select', (event) =>{
+//   alert(`You have selected a navigation link.`);
+// }));
+
+// window.addEventListener('select', (event)=>{
+//   alert("You have selected something on the page");
+// });
+
+
+
+
+// ********dblclick. .addEventListener ************
+
+
+paragraps.forEach(item => item.addEventListener('dblclick', (event)=>{
+  item.style.fontSize = '1.5rem'
+}));
+
+navLinks.forEach(item => item.addEventListener('dblclick', (event)=>{
+  item.style.fontSize = '1.5rem'
+}));
+
+images.forEach(item => item.addEventListener('dblclick', (event)=>{
+  item.style.width = '100%'
+}));
+
+
+// ********fullscreenchange .addEventListener ************
+
+// document.addEventListener('webkitfullscreenchange', (event)=>{
+//   if(document.requestFullscreen){
+//     alert('You have entered full-screen mode.' );
+//   } else {
+//     alert('You have left full-screen mode');
+//   } 
+// });
+
+
+
+// stop navigation from refreshing. 
+
+navLinks.forEach(item => item.addEventListener('click', (event)=>{
+  event.preventDefault()
+}));
+
+
+
+
 
